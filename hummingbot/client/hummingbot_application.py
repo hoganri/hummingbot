@@ -14,6 +14,7 @@ from hummingbot.logger import HummingbotLogger
 from hummingbot.logger.application_warning import ApplicationWarning
 from hummingbot.market.binance.binance_market import BinanceMarket
 from hummingbot.market.bittrex.bittrex_market import BittrexMarket
+from hummingbot.market.btse.btse_market import BTSEMarket
 from hummingbot.market.kucoin.kucoin_market import KucoinMarket
 from hummingbot.market.coinbase_pro.coinbase_pro_market import CoinbaseProMarket
 from hummingbot.market.huobi.huobi_market import HuobiMarket
