@@ -12,6 +12,7 @@ if TYPE_CHECKING:
 
 OPTIONS = {
     "binance",
+    "btse",
     "coinbase_pro",
     "huobi",
     "liquid",

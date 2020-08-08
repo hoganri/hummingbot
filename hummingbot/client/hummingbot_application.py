@@ -54,6 +54,7 @@ s_logger = None
 MARKET_CLASSES = {
     "bamboo_relay": BambooRelayMarket,
     "binance": BinanceMarket,
+    "btse": BTSEMarket,
     "coinbase_pro": CoinbaseProMarket,
     "huobi": HuobiMarket,
     "liquid": LiquidMarket,
@@ -259,7 +260,15 @@ class HummingbotApplication(*commands):
                     trading_pairs=trading_pairs,
                     trading_required=self._trading_required,
                 )
-
+            elif market_name == "btse":
+                btse_api_key = global_config_map.get("btse_api_key").value
+                btse_api_secret = global_config_map("btse_api_secret").value
+                market = BTSEMarket(btse_api_key,
+                                    btse_api_secret,
+                                    trading_pairs=trading_pairs,
+                                    trading_required=self._trading_required,
+                )
+                
             elif market_name == "radar_relay":
                 assert self.wallet is not None
                 market = RadarRelayMarket(
@@ -281,7 +290,6 @@ class HummingbotApplication(*commands):
                     pre_emptive_soft_cancels=pre_emptive_soft_cancels,
                     trading_required=self._trading_required,
                 )
-
             elif market_name == "coinbase_pro":
                 coinbase_pro_api_key = global_config_map.get("coinbase_pro_api_key").value
                 coinbase_pro_secret_key = global_config_map.get("coinbase_pro_secret_key").value
